@@ -1,55 +1,27 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-main>
-      <login/>
-      <register></register>
-      <stories></stories>
-    </v-main>
-  </v-app>
+  <div id="app">
+    <img class="logo" src="./assets/logo.png">
+    <h1>Welcom to dynamic Components!</h1>
+    <ul class="nav nav-tabs">
+    <!-- 조건에 따라 'active' 클래스를 설정 -->
+      <li v-for="page in pages" :class="isActivePage(page) ? 'active' : ''">
+        <a @click="setPage(page)"> {{page | capitalize}}</a>
+      </li>
+    </ul>
+    <components :is="activePage"></components>
+  </div>
 </template>
 
 <script>
+import Vue from 'vue'
 import Login from './components/Login.vue'
 import Register from './components/Register.vue'
 import Stories from './components/Stories.vue'
 import Famous from './components/Famous.vue'
+
+Vue.filter('capitalize', function (value){
+  return value.charAt(0).toUpperCase() + value.substr(1)
+})
 
 export default {
   name: 'App',
@@ -63,7 +35,20 @@ export default {
 
   data() {
     return {
-        //
+      pages: [
+        'stories',
+        'register',
+        'login'
+      ],
+      activePage: 'stories'
+    }
+  },
+  methods: {
+    setPage (newPage) {
+      this.activePage = newPage
+    },
+    isActivePage (page) {
+      this.activePage === page;
     }
   }
 }
