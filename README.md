@@ -1,6 +1,10 @@
 # login-form-vue2
 
 > A Vue.js project
+## Preview
+<img src="https://github.com/cepiloth/login-form-vue/blob/main/example/ex1.png"></img>
+<img src="https://github.com/cepiloth/login-form-vue/blob/main/example/ex2.png"></img>
+<img src="https://github.com/cepiloth/login-form-vue/blob/main/example/ex3.png"></img>
 
 ## Build Setup
 
