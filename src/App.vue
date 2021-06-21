@@ -1,6 +1,6 @@
 <template>
+  <center>
   <div id="app">
-    <img class="logo" src="./assets/logo.png">
     <h1>Welcom to dynamic Components!</h1>
     <ul class="nav nav-tabs">
     <!-- 조건에 따라 'active' 클래스를 설정 -->
@@ -10,6 +10,7 @@
     </ul>
     <components :is="activePage"></components>
   </div>
+</center>
 </template>
 
 <script>
