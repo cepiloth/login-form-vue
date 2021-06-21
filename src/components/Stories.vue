@@ -1,7 +1,7 @@
 <template>
 
   <ul class="list-group">
-    <li v-for="story in stories" class="list-group-item">
+    <li v-for="story in store.stories" class="list-group-item">
       {{story.writer}} said "{{story.plot}}"
       Story upvotes {{ story.upvotes}}.
     </li>
@@ -10,8 +10,18 @@
 </template>
 
 <script>
+import {store} from '../store.js'
+
 export default {
-  props: ['stories']
+  data() {
+    return {
+      //store.stories에 접근할 수 있습니다.
+      store
+    }
+  },
+  created () {
+    console.log('stories')
+  }
 }
 </script>
 
