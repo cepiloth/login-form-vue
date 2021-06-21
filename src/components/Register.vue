@@ -7,11 +7,18 @@
     <input placeholder="Pick a password" class="form-control"><br>
     <input placeholder="Confirm password" class="form-control"><br>
     <button class="btn">Sign up</button>
+    <famous :stories="stories"></famous>
   </div>
 </template>
 
 <script>
+import Famous from './Famous.vue'
+
 export default {
+  components: {
+    Famous
+  },
+  props: ['stories'],
   created () {
     console.log('register')
   }
