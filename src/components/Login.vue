@@ -1,9 +1,9 @@
 <template>
   <div id="login">
     <h2>Sign in</h2>
-    <input type="email" placeholder="Email address">
-    <input type="password" placeholder="Password">
-    <button class="btn">Sign in</button>
+    <input type="email" placeholder="Email address"><br>
+    <input type="password" placeholder="Password"><br>
+    <v-btn color="success" id="btnSignIn" class="button" >Sign up</v-btn>
   </div>
 </template>
 
